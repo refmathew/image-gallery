@@ -24,7 +24,8 @@ function browserSyncServe(cb){
 	browserSync.init({
 		server: {
 			baseDir: '.'
-		}
+		},
+		browser: 'firefox'
 	});
 	cb();
 }
