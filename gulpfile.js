@@ -37,8 +37,9 @@ function browserSyncReload(cb){
 // Watch changes in files
 function watchFiles(){
 	watch('index.html', { usePolling: true}, browserSyncReload);
-	watch('./src/sass/style.sass', { usePolling: true}, series(sassTranspile, browserSyncReload));
-	//watch('./src/js/app.js')
+	watch('./src/**/*.sass', { usePolling: true}, series(sassTranspile, browserSyncReload));
+	watch('./src/**/*.js', { usePolling: true}, browserSyncReload);
+
 }
 
 exports.build = cssBuild;

@@ -1,11 +1,12 @@
-@use "fonts.sass" as f
-@use "variables.sass" as v
-
+@use "fonts" as f
+@use "variables" as v
+@use "animations" as a
 
 *
   margin: 0
   padding: 0
   box-sizing: border-box
+
 
 body
   width: 100%
@@ -13,7 +14,7 @@ body
   overflow: hidden
   font-family: 'Amatic SC'
   font-size: 3.5rem
-  color: white
+  color: v.$color
 
 .flex-items-container
   width: 100%
@@ -29,18 +30,32 @@ body
     background-size: 100%
     background: no-repeat center
 
+    &--active
+      animation: item-open .5s forwards
+
+      > :first-child
+        animation: word1-appear .5s forwards
+      > :last-child
+        animation: word3-appear .5s forwards
+
+    &--inactive
+      animation: item-close .5s forwards
+
+      > :first-child
+        animation: word1-disappear .5s forwards
+      > :last-child
+        animation: word3-disappear .5s forwards
+
     &__word
       margin: auto
+      transition: all 2s ease
 
     &__word1
-      transform: translate(0, -700%)
+      transform: translateY(-700%)
 
     &__word3
-      transform: translate(0, 700%)
-
-    &--active
-      flex:4
-
+      transform: translateY(700%)
+        
   &__item1
     background-image: url(https://source.unsplash.com/4SByp8kIoOE/1000x1500)
 
@@ -48,7 +63,7 @@ body
     background-image: url(https://source.unsplash.com/j0DrLBZH0nE/1000x1500)
 
   &__item3
-    background-image: url(https://source.unsplash.com/vh_pAs2FH_8/1000x1500)
+   background-image: url(https://source.unsplash.com/vh_pAs2FH_8/1000x1500)
 
   &__item4
     background-image: url(https://source.unsplash.com/visLnGprQI8/1000x1500)

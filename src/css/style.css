@@ -1,4 +1,100 @@
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap");
+@-webkit-keyframes item-open {
+  from {
+    flex: 1;
+  }
+  to {
+    flex: 3;
+  }
+}
+@keyframes item-open {
+  from {
+    flex: 1;
+  }
+  to {
+    flex: 3;
+  }
+}
+@-webkit-keyframes item-close {
+  from {
+    flex: 3;
+  }
+  to {
+    flex: 1;
+  }
+}
+@keyframes item-close {
+  from {
+    flex: 3;
+  }
+  to {
+    flex: 1;
+  }
+}
+@-webkit-keyframes word1-appear {
+  from {
+    transform: translateY(-500%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes word1-appear {
+  from {
+    transform: translateY(-500%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes word1-disappear {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-500%);
+  }
+}
+@keyframes word1-disappear {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-500%);
+  }
+}
+@-webkit-keyframes word3-appear {
+  from {
+    transform: translateY(500%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@keyframes word3-appear {
+  from {
+    transform: translateY(500%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}
+@-webkit-keyframes word3-disappear {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(500%);
+  }
+}
+@keyframes word3-disappear {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(500%);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -28,17 +124,39 @@ body {
   background-size: 100%;
   background: no-repeat center;
 }
+.flex-items-container__item--active {
+  -webkit-animation: item-open 0.5s forwards;
+          animation: item-open 0.5s forwards;
+}
+.flex-items-container__item--active > :first-child {
+  -webkit-animation: word1-appear 0.5s forwards;
+          animation: word1-appear 0.5s forwards;
+}
+.flex-items-container__item--active > :last-child {
+  -webkit-animation: word3-appear 0.5s forwards;
+          animation: word3-appear 0.5s forwards;
+}
+.flex-items-container__item--inactive {
+  -webkit-animation: item-close 0.5s forwards;
+          animation: item-close 0.5s forwards;
+}
+.flex-items-container__item--inactive > :first-child {
+  -webkit-animation: word1-disappear 0.5s forwards;
+          animation: word1-disappear 0.5s forwards;
+}
+.flex-items-container__item--inactive > :last-child {
+  -webkit-animation: word3-disappear 0.5s forwards;
+          animation: word3-disappear 0.5s forwards;
+}
 .flex-items-container__item__word {
   margin: auto;
+  transition: all 2s ease;
 }
 .flex-items-container__item__word1 {
-  transform: translate(0, -700%);
+  transform: translateY(-700%);
 }
 .flex-items-container__item__word3 {
-  transform: translate(0, 700%);
-}
-.flex-items-container__item--active {
-  flex: 4;
+  transform: translateY(700%);
 }
 .flex-items-container__item1 {
   background-image: url(https://source.unsplash.com/4SByp8kIoOE/1000x1500);
